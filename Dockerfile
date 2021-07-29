@@ -5,13 +5,17 @@ RUN apt-get update && \
     apt-get install -y python3 && \
     apt-get install -y python3-dev && \
     apt-get install -y python3-pip && \
+    apt-get install -y libgmp-dev && \
+    apt-get install -y libatlas-base-dev && \
+    apt-get install -y python3-ply && \
+    apt-get install -y python3-networkx && \
     rm -rf /var/lib/apt/lists/*
 
 RUN pip3 config set global.index-url http://mirrors.aliyun.com/pypi/simple
 RUN pip3 config set install.trusted-host mirrors.aliyun.com
 
 RUN pip3 install --no-cache --upgrade pip && \
-    pip3 install --no-cache numpy scipy rsa cython
+    pip3 install --no-cache numpy scipy rsa cython pythran
 
 ENV TZ=Asia/Shanghai \
     DEBIAN_FRONTEND=noninteractive
