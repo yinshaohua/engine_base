@@ -17,8 +17,8 @@ RUN pip3 config set install.trusted-host mirrors.aliyun.com
 RUN pip3 install --no-cache --upgrade pip && \
     pip3 install --no-cache numpy scipy rsa cython pythran
 
-ENV TZ=Asia/Shanghai \
-    DEBIAN_FRONTEND=noninteractive
+ENV TZ = Asia/Shanghai \
+    DEBIAN_FRONTEND = noninteractive
 
 RUN apt update \
     && apt install -y tzdata \
