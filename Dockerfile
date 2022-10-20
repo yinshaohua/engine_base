@@ -1,4 +1,4 @@
-FROM ubuntu:22.10
+FROM ubuntu:20.04
 
 RUN apt-get update && \
     apt-get install -y gcc && \
@@ -15,10 +15,11 @@ RUN pip3 config set global.index-url http://mirrors.aliyun.com/pypi/simple
 RUN pip3 config set install.trusted-host mirrors.aliyun.com
 
 RUN pip3 install --no-cache --upgrade pip && \
-    pip3 install --no-cache numpy scipy rsa cython pythran
+    pip3 install --no-cache numpy scipy rsa cython
 
 ENV TZ = Asia/Shanghai \
-    DEBIAN_FRONTEND = noninteractive
+    DEBIAN_FRONTEND = noninteractive \
+    LANG = "zh_CN.UTF-8"
 
 # RUN apt update \
 #     && apt install -y tzdata \
