@@ -1,1 +1,1 @@
-docker build . -t registry.jeewey.com/library/engine_base
+docker build . -t jeewey/engine_base
