@@ -1,7 +1,8 @@
-FROM ubuntu:22.04 as engine_base
+FROM ubuntu:20.04 as engine_base
 
 RUN sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list \
     && sed -i s@/security.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list \
+    && sed -i -e 's/^APT/# APT/' -e 's/^DPkg/# DPkg/' /etc/apt/apt.conf.d/docker-clean \
     && apt-get clean \
     && apt-get update -y \
     && apt-get upgrade -y \
